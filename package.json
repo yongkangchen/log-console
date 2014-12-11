@@ -2,8 +2,8 @@
   "name": "log-console",
   "main": "./lib/log-console",
   "version": "0.0.0",
-  "description": "A short description of your package",
-  "repository": "https://github.com/atom/log-console",
+  "description": "a IDE like console for atom",
+  "repository": "https://github.com/yongkangchen/log-console",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
