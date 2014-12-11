@@ -1,0 +1,81 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/stylesheets/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+.log-console {
+	overflow-y: auto;
+
+	.fatal {
+  	.notification(@text-color-error; @background-color-error);
+	}
+
+	.error {
+	  .notification(@text-color-error; @background-color-error);
+	}
+
+	.warning {
+	  .notification(@text-color-warning; @background-color-warning);
+	}
+
+	.info {
+	  .notification(@text-color-info; @background-color-info);
+	}
+
+	.success {
+	  .notification(@text-color-success; @background-color-success);
+	}
+
+	li span{
+		cursor: pointer;
+	}
+
+	.detail{
+		p{
+			line-height: 0.1;
+		}
+		padding-left: 5px;
+		padding-top: 5px;
+	}
+
+	.notification(@txt; @bg) {
+		border-top: 1px solid hsla(0,0%,0%,.1);
+	  //color: darken(@txt, 40%);
+		color: @txt;
+		padding-left: 5px;
+	  //background-color: lighten(@bg, 25%);
+
+	  /*a {
+	    color: darken(@txt, 80%);
+	  }*/
+
+	  &.icon:before {
+	    //color: lighten(@bg, 36%);
+			color: @bg;
+	    //background-color: @bg;
+	  }
+	}
+}
+
+.log-console-resize-handle {
+  height: 6px;
+  cursor: row-resize;
+  z-index: 3;
+	margin-top: -3px;
+}
+
+.icon-btn-xs{
+	.icon-info:before{
+		font-size: 12px;
+		height: 50%;
+	}
+	.icon-flame:before{
+		font-size: 12px;
+		height: 50%;
+	}
+	.icon-alert:before{
+		font-size: 12px;
+		height: 50%;
+	}
+}
