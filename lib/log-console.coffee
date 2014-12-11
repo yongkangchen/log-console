@@ -56,7 +56,7 @@ module.exports = LogConsole =
         @logConfig.logTypePattern = [@logConfig.logTypePattern]
 
       if typeof(@logConfig.fileAndLinePattern) == "string"
-        @logConfig.fileAndLinePattern = [@logConfig.fileAndLinePattern]
+        @logConfig.fileAndLinePattern = {"": @logConfig.fileAndLinePattern}
 
 
       @logTypePattern = for v in @logConfig.logTypePattern
