@@ -21,7 +21,7 @@ class LogConsoleView extends View
       @div class: 'log-console-resize-handle', mousedown: 'resizeStarted', dblclick: 'resizeToMin'
       @div class: 'icon-btn-xs btn-group btn-group-xs', =>
         @button class: 'btn', click: 'clear', 'Clear'
-        @button class: 'btn selected', 'Collapse'
+        # @button class: 'btn selected', 'Collapse'
       @div class: 'pull-right icon-btn-xs btn-group btn-group-xs', outlet: 'filterGroup', click: 'filterHandler', =>
         @button class: 'btn text-highlight icon-info', '0'
         @button class: 'btn text-warning icon-alert', '0'

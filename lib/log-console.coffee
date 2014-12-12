@@ -14,7 +14,6 @@ module.exports = LogConsole =
   fileAndLinePattern: null
 
   activate: (state) ->
-    console.error "LogConsole"
     @logConsoleView = new LogConsoleView()
 
     @configPath = path.join atom.project.getPath(), SETTINGS_FILE_NAME
@@ -22,13 +21,13 @@ module.exports = LogConsole =
       if exists
         @load()
       else
-        @logConsoleView.addLine "Couldn't find config.", "error"
+        @logConsoleView.addLine "Couldn't find config: .log-console.json", "error"
 
     atom.workspaceView.command "log-console:reload-config", =>
       @load()
 
   deactivate: ->
-    @logConsoleView.destroy()
+    @logConsoleView.remove()
     @tail.unwatch() if @tail
     @tail = null
 
