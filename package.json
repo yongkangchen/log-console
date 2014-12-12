@@ -1,7 +1,7 @@
 {
   "name": "log-console",
   "main": "./lib/main",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a IDE like console for atom",
   "repository": "https://github.com/yongkangchen/log-console",
   "license": "MIT",
