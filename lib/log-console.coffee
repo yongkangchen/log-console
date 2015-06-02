@@ -16,7 +16,7 @@ module.exports = LogConsole =
   activate: (state) ->
     @logConsoleView = new LogConsoleView()
 
-    @configPath = path.join atom.project.getPath(), SETTINGS_FILE_NAME
+    @configPath = path.join atom.project.getPath()[0], SETTINGS_FILE_NAME
     fs.exists @configPath, (exists)=>
       if exists
         @load()

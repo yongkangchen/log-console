@@ -3,7 +3,7 @@ module.exports =
     doActive()
 
 doActive=->
-  if atom.project.getPath()
+  if atom.project.getPaths().length > 0
     pkg = require "./log-console"
     pkg.activate()
   else
