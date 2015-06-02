@@ -1,4 +1,5 @@
-{$, $$, View, Point} = require 'atom'
+{Point} = require 'atom'
+{$, $$, View} = require 'atom-space-pen-views'
 
 icon_dict =
   warning: "alert"
@@ -47,7 +48,7 @@ class LogConsoleView extends View
       return if target.html() == ""
       target.toggle()
 
-    atom.workspaceView.appendToBottom(this)
+    atom.workspace.addBottomPanel(item: this)
     @resizeToMin()
 
   clear: ->
