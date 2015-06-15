@@ -16,14 +16,17 @@ module.exports = LogConsole =
   activate: (state) ->
     @logConsoleView = new LogConsoleView()
 
-    @configPath = path.join atom.project.getPath()[0], SETTINGS_FILE_NAME
+    # TODO: This gets the path of the first project path, which may not be the
+    #       actual current project (if there are multiple project roots)
+    @configPath = path.join atom.project.getPaths()[0], SETTINGS_FILE_NAME
     fs.exists @configPath, (exists)=>
       if exists
         @load()
       else
         @logConsoleView.addLine "Couldn't find config: .log-console.json", "error"
 
-    atom.workspaceView.command "log-console:reload-config", =>
+    # TODO: Use disposable instead?
+    atom.commands.add "atom-workspace", "log-console:reload-config", =>
       @load()
 
   deactivate: ->
@@ -66,6 +69,9 @@ module.exports = LogConsole =
         @fileAndLinePattern[k] = new RegExp(v)
 
       @tail.unwatch() if @tail
+      # TODO: 1. Allow paths to be relative to project root
+      #       2. Create an error if the file does not exist
+      #          (currently throws an error from tail)
       @tail = new Tail @logConfig.logfile, @logConfig.blockSep
 
       @tail.on "line", (data)=>
